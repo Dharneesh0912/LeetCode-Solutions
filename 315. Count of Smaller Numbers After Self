@@ -3,7 +3,7 @@ class Solution {
         int n = nums.length;
 
         // Step 1: Coordinate compression
-        int[] sorted = nums.clone();
+        int[] sorted = nums.clone(); 
         Arrays.sort(sorted);
         Map<Integer, Integer> map = new HashMap<>();
         int rank = 1;
