@@ -1,0 +1,23 @@
+class Solution {
+    public List<Integer> sequentialDigits(int low, int high) {
+        List<Integer> arr=new ArrayList<>();
+        int start=Integer.toString(low).length();
+        int end=Integer.toString(high).length();
+        for(int i=start;i<=end;i++){
+            for(int j=1;j<=10-i;j++){
+                int digit=j;
+                int first=0;
+                for(int o=0;o<i;o++){
+                    first=first*10+digit;
+                    digit++;
+                }
+                if(first>=low && first<=high){
+                    arr.add(first);
+                }
+            }
+
+        }
+        
+        return arr;
+    }
+}
