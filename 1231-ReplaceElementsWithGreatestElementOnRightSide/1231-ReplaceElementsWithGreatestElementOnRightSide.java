@@ -1,0 +1,28 @@
+// Last updated: 7/14/2026, 2:11:56 PM
+class Solution {
+    public int[] replaceElements(int[] arr) {
+    
+        int arr2[]=Arrays.copyOf(arr,arr.length);
+        arr2[arr.length-1]=-1;
+        int m=1;
+        for(int i=0;i<arr.length-1;i++){
+            int max=arr[i+1];
+            for(int j=i+1;j<arr.length;j++){
+                if(max>=arr[j]){
+                    arr2[i]=max;
+                    if(max>=arr[arr.length-1]){
+                        arr2[i]=max;
+                    }
+                    else{
+                        max=arr[arr.length-1];
+                    }
+                }
+                else{
+                    max=arr[j];
+                }
+            } 
+            m++;
+        }
+        return arr2;
+    }
+}
