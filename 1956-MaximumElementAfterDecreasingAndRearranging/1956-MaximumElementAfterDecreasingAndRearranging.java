@@ -1,0 +1,22 @@
+// Last updated: 7/14/2026, 2:11:18 PM
+class Solution {
+    public int maximumElementAfterDecrementingAndRearranging(int[] arr) {
+        Arrays.sort(arr);
+        arr[0]=1;
+        ArrayList<Integer> a=new ArrayList<>();
+        a.add(arr[0]);
+        for(int i=1;i<arr.length;i++){
+            if(arr[i]!=arr[i-1])
+            if(Math.abs(arr[i]-arr[i-1])<=1){
+                a.add(arr[i]);
+            }
+            else{
+                arr[i]=arr[i-1]+1;
+                a.add(arr[i]);
+            }
+        }
+        Collections.sort(a);
+        return a.get(a.size()-1);
+        
+    }
+}
