@@ -1,0 +1,26 @@
+// Last updated: 7/14/2026, 2:13:10 PM
+class Solution {
+    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        int arr[]=new int[nums1.length];
+        for(int i=0;i<nums1.length;i++){
+            int val=nums1[i];
+            for(int j=0;j<nums2.length;j++){
+                if(nums2[j]==val){
+                    if(j==nums2.length){
+                        arr[i]=-1;
+                        break;
+                    }
+                    int max=-1;
+                    for(int o=j+1;o<nums2.length;o++){
+                        if(nums2[o]>val){
+                            max=nums2[o];
+                            break;
+                        }
+                    }
+                    arr[i]=max;
+                }
+            }
+        }
+        return arr;
+    }
+}
