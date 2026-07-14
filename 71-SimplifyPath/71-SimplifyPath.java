@@ -1,0 +1,26 @@
+// Last updated: 7/14/2026, 2:15:06 PM
+class Solution {
+    public String simplifyPath(String path) {
+        List<String> l1= new ArrayList<>();
+        String str[]=path.split("/");
+        for(int i=0;i<str.length;i++){
+            if(str[i].equals("") || str[i].equals(".")){
+                continue;
+            }
+            if(str[i].equals("..")){
+                if(!l1.isEmpty()){
+                    l1.remove(l1.size()-1);
+                }
+            }
+            else{
+                l1.add(str[i]);
+            }
+        }
+        String ans="";
+        for(String k:l1){
+            ans+="/"+k;
+        }
+        return ans.equals("")? "/":ans;
+        
+    }
+}
