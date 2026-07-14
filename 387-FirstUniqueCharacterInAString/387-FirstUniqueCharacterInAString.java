@@ -1,0 +1,20 @@
+// Last updated: 7/14/2026, 2:13:29 PM
+class Solution {
+    public int firstUniqChar(String s) {
+        int freq[] = new int[26];
+
+        // Count frequency
+        for (int i = 0; i < s.length(); i++) {
+            freq[s.charAt(i) - 'a']++;
+        }
+
+        // Find first unique
+        for (int i = 0; i < s.length(); i++) {
+            if (freq[s.charAt(i) - 'a'] == 1) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+}
