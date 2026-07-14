@@ -1,0 +1,22 @@
+// Last updated: 7/14/2026, 2:14:34 PM
+class Solution {
+    public ListNode sortList(ListNode head) {
+        List<Integer> lst = new ArrayList<>();
+        ListNode temp = head;
+        while (temp != null) {
+            lst.add(temp.val);
+            temp = temp.next;
+        }
+        Collections.sort(lst);
+        ListNode newHead = null;
+        for (int i = lst.size() - 1; i >= 0; i--) { 
+            newHead = insertAtBegin(newHead, lst.get(i));
+        }
+        return newHead;
+    }
+    private ListNode insertAtBegin(ListNode head, int val) {
+        ListNode newnode = new ListNode(val);
+        newnode.next = head;
+        return newnode;
+    }
+}
