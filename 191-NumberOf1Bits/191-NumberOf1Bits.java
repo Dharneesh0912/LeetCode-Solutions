@@ -1,0 +1,14 @@
+// Last updated: 7/14/2026, 2:14:14 PM
+class Solution {
+    public int hammingWeight(int n) {
+        String s=Integer.toBinaryString(n);
+        int count=0;
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='1'){
+                count++;
+            }
+        }
+        return count;
+        
+    }
+}
