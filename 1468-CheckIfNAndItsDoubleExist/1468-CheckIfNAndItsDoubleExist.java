@@ -1,0 +1,18 @@
+// Last updated: 7/14/2026, 2:11:43 PM
+class Solution {
+    public boolean checkIfExist(int[] arr) {
+        Arrays.sort(arr);
+        boolean b=false;
+        for(int i=0;i<arr.length;i++){
+            for(int j=0;j<arr.length;j++){
+                if(i!=j){
+                    if(arr[i]==2*arr[j]){
+                        b=true;
+                    }
+                }
+            }
+        }
+        return b;
+
+    }
+}
