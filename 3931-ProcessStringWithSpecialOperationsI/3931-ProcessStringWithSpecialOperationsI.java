@@ -1,0 +1,30 @@
+// Last updated: 7/14/2026, 1:53:12 PM
+class Solution {
+    public String processStr(String s) {
+        char ch[]=s.toCharArray();
+        String ans="";
+        for(int i=0;i<ch.length;i++){
+            char dup=ch[i];
+            switch(dup){
+                case '#':
+                    ans=ans.concat(ans);
+                    break;
+                case '%':
+                    String dup1="";
+                    for(int j=ans.length()-1;j>=0;j--){
+                        dup1+=ans.charAt(j);    
+                    }
+                    ans=dup1;
+                    break;
+                case '*':
+                    if(ans.length() > 0){
+                        ans = ans.substring(0, ans.length()-1);
+                    }
+                    break;
+                default:
+                    ans+=dup;
+            }
+        }
+        return ans;
+    }
+}
