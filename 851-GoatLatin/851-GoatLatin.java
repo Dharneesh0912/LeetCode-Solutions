@@ -1,0 +1,34 @@
+// Last updated: 7/14/2026, 2:12:24 PM
+class Solution {
+    public String toGoatLatin(String sentence) {
+        String vow="aeiouAEIOU";
+        String arr[]=sentence.split(" ");
+        String add="a";
+        for(int i=0;i<arr.length;i++){
+            if(vow.contains(Character.toString(arr[i].charAt(0)))){    
+                arr[i]=arr[i]+"ma";
+            }
+            else{
+                String ne=arr[i].substring(1,arr[i].length())+arr[i].substring(0,1);
+                arr[i]=ne+"ma";
+            }
+        }
+        int count=1;
+        for(int i=0;i<arr.length;i++){
+            for(int j=0;j<count;j++){
+                arr[i]=arr[i]+"a";
+            }
+            count++;
+        }
+        String res="";
+        for(int i=0;i<arr.length;i++){
+            if(i!=arr.length-1){
+                res+=arr[i]+" ";
+            }
+            else{
+                res+=arr[i];
+            }
+        }
+        return res;
+    }
+}
