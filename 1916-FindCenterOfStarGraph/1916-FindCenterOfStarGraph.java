@@ -1,0 +1,16 @@
+// Last updated: 7/14/2026, 2:11:19 PM
+class Solution {
+    public int findCenter(int[][] edges) {
+
+        // First edge nodes
+        int a = edges[0][0];
+        int b = edges[0][1];
+
+        // Check with second edge
+        if (a == edges[1][0] || a == edges[1][1]) {
+            return a;
+        } else {
+            return b;
+        }
+    }
+}
