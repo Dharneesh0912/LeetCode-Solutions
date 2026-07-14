@@ -1,0 +1,20 @@
+// Last updated: 7/14/2026, 2:12:18 PM
+class Solution {
+    public int binaryGap(int n) {
+        String str=Integer.toBinaryString(n);
+        int max=0;
+        for(int i=0;i<str.length()-1;i++){
+                if(str.charAt(i)!='1'){
+                    continue;
+                }
+            for(int j=i+1;j<str.length();j++){
+                if(str.charAt(i)==str.charAt(j)){
+                    max=Math.max(max,j-i);   
+                    break;
+                }
+            }
+            
+        }
+        return max;
+    }
+}
