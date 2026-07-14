@@ -1,0 +1,19 @@
+// Last updated: 7/14/2026, 2:12:29 PM
+class Solution {
+    public boolean rotateString(String s, String goal) {
+        char ch[]=s.toCharArray();
+        char ch1[]=goal.toCharArray();
+        if(s.length()!=goal.length()){
+            return false;
+        }
+        Arrays.sort(ch);
+        Arrays.sort(ch1);
+        for(int i=0;i<s.length();i++){
+            if(ch[i]!=ch1[i]){
+                return false;
+            }
+        }
+        return true;
+        
+    }
+}
