@@ -1,0 +1,47 @@
+// Last updated: 7/14/2026, 2:13:43 PM
+class Solution {
+    public List<Integer> countSmaller(int[] nums) {
+        int n = nums.length;
+
+        // Step 1: Coordinate compression
+        int[] sorted = nums.clone();
+        Arrays.sort(sorted);
+        Map<Integer, Integer> map = new HashMap<>();
+        int rank = 1;
+        for (int x : sorted) {
+            if (!map.containsKey(x)) {
+                map.put(x, rank++);
+            }
+        }
+
+        // Step 2: Fenwick Tree
+        int[] fenwick = new int[rank + 1];
+
+        Integer[] result = new Integer[n];
+
+        for (int i = n - 1; i >= 0; i--) {
+            int r = map.get(nums[i]);
+            result[i] = query(fenwick, r - 1); // count smaller
+            update(fenwick, r);                // add current number
+        }
+
+        return Arrays.asList(result);
+    }
+
+    // Fenwick Tree functions
+    private void update(int[] fenwick, int index) {
+        while (index < fenwick.length) {
+            fenwick[index]++;
+            index += index & -index;
+        }
+    }
+
+    private int query(int[] fenwick, int index) {
+        int sum = 0;
+        while (index > 0) {
+            sum += fenwick[index];
+            index -= index & -index;
+        }
+        return sum;
+    }
+}
