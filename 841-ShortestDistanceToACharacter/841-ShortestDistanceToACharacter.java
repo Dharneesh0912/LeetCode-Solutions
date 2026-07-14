@@ -1,0 +1,18 @@
+// Last updated: 7/14/2026, 2:12:27 PM
+class Solution {
+    public int[] shortestToChar(String s, char c) {
+        int arr[]=new int[s.length()];
+        char ch[]=s.toCharArray();
+        for(int i=0;i<ch.length;i++){
+            int min=Integer.MAX_VALUE;
+            for(int j=0;j<ch.length;j++){
+                if(ch[j]==c){
+                    int val=Math.abs(i-j);
+                    min=Math.min(min,val);
+                }   
+            }
+            arr[i]=min;
+        }
+        return arr;  
+    }
+}
