@@ -1,0 +1,31 @@
+// Last updated: 7/14/2026, 2:15:22 PM
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        int ans[]=new int[2];
+        boolean b=false;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]==target){
+                b=true;
+            }
+        }
+        if(!b){
+            ans[0]=-1;
+            ans[1]=-1;
+            return ans;
+        }
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]==target){
+                ans[0]=i;
+                break;
+            }
+        }
+        for(int j=nums.length-1;j>=0;j--){
+            if(nums[j]==target){
+                ans[1]=j;
+                break;
+            }
+        }
+        return ans;
+        
+    }
+}
