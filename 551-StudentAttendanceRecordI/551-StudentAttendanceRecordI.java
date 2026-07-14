@@ -1,0 +1,29 @@
+// Last updated: 7/14/2026, 2:13:05 PM
+class Solution {
+    public boolean checkRecord(String s) {
+        if(s.length()==0){
+            return false;
+        }
+        HashMap<Character,Integer> map=new HashMap<>();
+        for(int i=0;i<s.length();i++){
+            map.put(s.charAt(i),map.getOrDefault(s.charAt(i),0)+1);
+        }
+        int consecutive = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == 'L') {
+                consecutive++;
+                if (consecutive == 3)
+                    return false;
+            } else {
+                consecutive = 0;
+            }
+        }
+        if(map.containsKey('A')){
+            if(map.get('A')>=2){
+                return false;
+            }
+        }
+        return true;
+    }
+}
