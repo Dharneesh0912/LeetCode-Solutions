@@ -1,0 +1,25 @@
+// Last updated: 7/14/2026, 2:13:21 PM
+class Solution {
+    public int arrangeCoins(int n) {
+        int count=0;
+        boolean m=true;
+        int i=1;
+        if(n==i){
+            count++;
+            return count;
+        }
+        while(n>0){
+            int s=n-i;
+            if(s>=0){
+                count++;
+                i++;
+                n=s;
+            }
+            else{
+                n=s;
+            }      
+        }
+        return count;
+        
+    }
+}
